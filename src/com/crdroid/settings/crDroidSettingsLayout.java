@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017-2022 crDroid Android Project
+ * Copyright (C) 2017-2023 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,8 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.crdroid.settings.fragments.About;
+import com.crdroid.settings.fragments.StatusBar;
+/*
 import com.crdroid.settings.fragments.Buttons;
 import com.crdroid.settings.fragments.LockScreen;
 import com.crdroid.settings.fragments.QuickSettings;
@@ -49,8 +51,8 @@ import com.crdroid.settings.fragments.Miscellaneous;
 import com.crdroid.settings.fragments.Navigation;
 import com.crdroid.settings.fragments.Notifications;
 import com.crdroid.settings.fragments.Sound;
-import com.crdroid.settings.fragments.StatusBar;
 import com.crdroid.settings.fragments.UserInterface;
+*/
 
 public class crDroidSettingsLayout extends SettingsPreferenceFragment {
 
@@ -131,6 +133,8 @@ public class crDroidSettingsLayout extends SettingsPreferenceFragment {
 
         @Override
         protected Void doInBackground(Void... params) {
+            StatusBar.reset(rContext);
+/*
             Buttons.reset(rContext);
             LockScreen.reset(rContext);
             QuickSettings.reset(rContext);
@@ -138,8 +142,8 @@ public class crDroidSettingsLayout extends SettingsPreferenceFragment {
             Navigation.reset(rContext);
             Notifications.reset(rContext);
             Sound.reset(rContext);
-            StatusBar.reset(rContext);
             UserInterface.reset(rContext);
+*/
             finish();
             startActivity(getIntent());
             return null;
@@ -165,6 +169,8 @@ public class crDroidSettingsLayout extends SettingsPreferenceFragment {
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
             frags[0] = new StatusBar();
+            frags[1] = new About();
+/*
             frags[1] = new QuickSettings();
             frags[2] = new LockScreen();
             frags[3] = new Navigation();
@@ -173,7 +179,7 @@ public class crDroidSettingsLayout extends SettingsPreferenceFragment {
             frags[6] = new Notifications();
             frags[7] = new Sound();
             frags[8] = new Miscellaneous();
-            frags[9] = new About();
+*/
         }
 
         @Override
@@ -196,6 +202,8 @@ public class crDroidSettingsLayout extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[] {
             getString(R.string.statusbar_title),
+            getString(R.string.about_crdroid)
+/*
             getString(R.string.quicksettings_title),
             getString(R.string.lockscreen_title),
             getString(R.string.navigation_title),
@@ -204,7 +212,7 @@ public class crDroidSettingsLayout extends SettingsPreferenceFragment {
             getString(R.string.notifications_title),
             getString(R.string.sound_title),
             getString(R.string.misc_title),
-            getString(R.string.about_crdroid)
+*/
         };
         return titleString;
     }
